@@ -1,0 +1,42 @@
+<% if (bird.length == 0) {bird[0] = 0} %>
+<input id="bird_id" name="bird_id" type="hidden" value="<%= bird[0].bird_id %>">
+<label for="Primary_Name">Primary Name</label>
+<input id="Primary_Name" name="Primary_Name" type="text" value="<%= bird[0].primary_name %>">
+<label for="English_Name">English Name</label>
+<input id="English_Name" name="English_Name" type="text" value="<%= bird[0].english_name %>">
+
+<label for="Scientific_Name">Scientific Name</label>
+<input id="Scientific_Name" name="Scientific_Name" type="text" value="<%= bird[0].scientific_name %>">
+<label for="Order">Order</label>
+<input id="Order" name="Order" type="text" value="<%= bird[0].order_name %>">
+<label for="Family">Family</label>
+<input id="Family" name="Family" type="text" value="<%= bird[0].family %>">
+
+<label for="Length">Length (cm)</label>
+<input id="Length" name="Length" type="value" value="<%= bird[0].length %>">
+<label for="Weight">Weight (g)</label>
+<input id="Weight" name="Weight" type="value" value="<%= bird[0].weight %>">
+
+<label for="status_name">Status</label>
+<select id="status_name" name="status_name" for="status">
+    <% for (var i = 0; i < status.length; i++) {
+        if (status[i].status_name == bird[0].status_name){ %>
+            <option selected="selected"><%= status[i].status_name %></option>
+        <% } else { %>
+            <option><%= status[i].status_name %></option>
+        <% }
+        } %>
+</select>           
+
+<label for="photographer">Photo Credit</label>
+<input id="photographer" type="text" name="photographer" value="<%= bird[0].photographer %>">
+
+<label for="photo_source">Photo Preview</label>
+<input id="photo_source" type="text" name="photo_source" value="<%= bird[0].filename %>" readonly="readonly">
+
+<label for="photo_upload">Upload New Photo</label>
+<input id="photo_upload" type="file" name="photo_upload" for="photo_upload">
+
+
+<img for="upload_preview" src="/images/<%= bird[0].filename %>" alt="Photo of <%= bird[0].primary_name %>">
+
